@@ -7,7 +7,8 @@ const socialLinks = {
     "https://www.linkedin.com/in/vayunandanraj-bodasu-b69294360/",
   github: "https://github.com/VAYUNANDANRAJ-07",
   instagram: "https://www.instagram.com/vayuuverse/",
-  youtube: "https://www.youtube.com/channel/UCt4LXKk7YGEqrgAfvIlj37w",
+  youtube:
+    "https://www.youtube.com/channel/UCt4LXKk7YGEqrgAfvIlj37w",
 };
 
 const certificates = [
@@ -29,7 +30,7 @@ const certificates = [
   },
   {
     number: "03",
-    title: "AI-ML",
+    title: "AI — ML",
     subtitle: "Virtual Internship",
     organization: "Google for Developers",
     period: "JAN — MAR 2026",
@@ -67,42 +68,44 @@ export default function Home() {
 
   useEffect(() => {
     const updateTime = () => {
-      setTime(
-        new Intl.DateTimeFormat("en-IN", {
-          timeZone: "Asia/Kolkata",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
-        }).format(new Date())
-      );
+      const current = new Intl.DateTimeFormat("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      }).format(new Date());
+
+      setTime(current);
     };
 
     updateTime();
 
-    const timer = setInterval(updateTime, 1000);
+    const interval = setInterval(updateTime, 1000);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(interval);
   }, []);
 
   const closeMenu = () => setMenuOpen(false);
 
   return (
     <main>
-      {/* ================= NAVBAR ================= */}
+      {/* =====================================================
+          NAVIGATION
+      ===================================================== */}
 
       <nav className="navbar">
         <div className="nav-inner">
-          <a href="#home" className="logo" onClick={closeMenu}>
-            <span className="logo-mark">V</span>
+          <a href="#home" className="brand" onClick={closeMenu}>
+            <span className="brand-symbol">V</span>
 
-            <span className="logo-text">
+            <span className="brand-name">
               VAYU
-              <small>ECE • CREATOR</small>
+              <small>VAYUNANDAN RAJ</small>
             </span>
           </a>
 
-          <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <div className={`nav-menu ${menuOpen ? "nav-open" : ""}`}>
             <a href="#about" onClick={closeMenu}>
               ABOUT
             </a>
@@ -120,618 +123,677 @@ export default function Home() {
             </a>
 
             <a href="#certifications" onClick={closeMenu}>
-              CERTS
+              CREDENTIALS
             </a>
 
             <a href="#creator" onClick={closeMenu}>
-              CREATOR
+              VAYUVERSE
             </a>
 
             <a href="#contact" onClick={closeMenu}>
               CONTACT
             </a>
+          </div>
 
+          <div className="nav-right">
             <a
               href="/Vayu-Resume.pdf"
               target="_blank"
               rel="noreferrer"
-              onClick={closeMenu}
+              className="resume-link"
             >
-              RESUME ↗
+              RESUME <span>↗</span>
             </a>
-          </div>
 
-          <button
-            className="menu-button"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle navigation"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+            <button
+              className="menu-toggle"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Open navigation"
+            >
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
       </nav>
 
-      {/* ================= HERO ================= */}
+      {/* =====================================================
+          HERO
+      ===================================================== */}
 
       <section className="hero" id="home">
-        <div className="hero-decoration hero-decoration-one" />
-        <div className="hero-decoration hero-decoration-two" />
+        <div className="hero-grid" />
+        <div className="hero-orb hero-orb-one" />
+        <div className="hero-orb hero-orb-two" />
 
         <div className="hero-top">
-          <div className="eyebrow">
-            <span className="status-dot" />
-            AVAILABLE / LEARNING / CREATING
+          <div className="hero-location">
+            <span className="tiny-dot" />
+            HYDERABAD / INDIA
           </div>
 
-          <div className="hero-time">
-            <span>HYDERABAD / IST</span>
+          <div className="hero-clock">
+            <span>IST</span>
             <strong>{time || "00:00:00"}</strong>
           </div>
         </div>
 
-        <div className="hero-content">
+        <div className="hero-main">
           <div className="hero-copy">
-            <p className="signal-label">
-              ECE STUDENT • CONTENT CREATOR
+            <p className="hero-kicker">
+              ELECTRONICS & COMMUNICATION ENGINEERING
             </p>
 
             <h1>
-              HELLO,
-              <span>I&apos;M VAYU.</span>
-              <span>LET&apos;S CREATE.</span>
+              I BUILD
+              <em>circuits.</em>
+              <br />
+              I CREATE
+              <em>moments.</em>
             </h1>
 
-            <p className="hero-description">
-              Electronics & Communication Engineering student and content
-              creator exploring technology, storytelling, visual content and
-              digital creativity.
-            </p>
+            <div className="hero-intro">
+              <span className="intro-line" />
 
-            <div className="hero-buttons">
-              <a href="#work" className="primary-button">
-                EXPLORE WORK
-                <span>↘</span>
-              </a>
-
-              <a
-                href="#creator"
-                className="secondary-button"
-              >
-                VIEW CREATIVE
-                <span>↘</span>
-              </a>
+              <p>
+                I&apos;m <strong>Vayu</strong> — an ECE student, creator and
+                curious mind building a space where technology and creativity
+                can exist together.
+              </p>
             </div>
 
-            <div className="hero-role-list">
-              <span>ENGINEERING</span>
-              <i />
-              <span>CONTENT</span>
-              <i />
-              <span>CREATIVE</span>
+            <div className="hero-actions">
+              <a href="#work" className="hero-primary">
+                SEE MY WORK
+                <span>↓</span>
+              </a>
+
+              <a href="#creator" className="hero-secondary">
+                ENTER VAYUVERSE
+                <span>↗</span>
+              </a>
             </div>
           </div>
 
-          <div className="hero-visual">
-            <div className="profile-frame">
-              <div className="frame-corner frame-tl" />
-              <div className="frame-corner frame-tr" />
-              <div className="frame-corner frame-bl" />
-              <div className="frame-corner frame-br" />
+          <div className="hero-portrait">
+            <div className="portrait-backdrop" />
+
+            <div className="portrait-frame">
+              <div className="portrait-number">01</div>
 
               <img src="/profile.jpg" alt="Vayu" />
 
-              <div className="profile-tag">
-                <strong>VAYU</strong>
-                <span>ECE / CONTENT CREATOR</span>
+              <div className="portrait-caption">
+                <span>VAYU</span>
+                <small>ECE / CREATOR</small>
               </div>
             </div>
 
-            <div className="frequency-card">
+            <div className="floating-note note-one">
               <span>BASED IN</span>
               <strong>HYD</strong>
-              <small>INDIA</small>
+            </div>
+
+            <div className="floating-note note-two">
+              <span>IDENTITY</span>
+              <strong>@VAYUVERSE</strong>
             </div>
           </div>
         </div>
 
         <div className="hero-bottom">
+          <span>2007 — PRESENT</span>
           <span>ECE / 2028</span>
-          <span>CONTENT CREATOR</span>
-          <span>@VAYUVERSE</span>
-          <span className="hero-bottom-right">
-            HYDERABAD / INDIA
-          </span>
+          <span>ENGINEERING × CREATIVITY</span>
+
+          <a href="#about">
+            SCROLL TO EXPLORE
+            <span>↓</span>
+          </a>
         </div>
       </section>
 
-      {/* ================= ABOUT ================= */}
+      {/* =====================================================
+          ABOUT
+      ===================================================== */}
 
-      <section className="section about-section" id="about">
-        <div className="section-number">01</div>
+      <section className="about-section" id="about">
+        <div className="paper-shape shape-about" />
 
-        <div className="section-heading">
-          <p>ABOUT / 001</p>
-
-          <h2>
-            ENGINEERING
-            <br />
-            <span>MEETS IDEAS.</span>
-          </h2>
-        </div>
-
-        <div className="about-content">
-          <div className="about-large">
-            <p>
-              I&apos;m <strong>Vayu</strong>, an Electronics & Communication
-              Engineering student and content creator based in Hyderabad.
-            </p>
-
-            <p>
-              I enjoy learning through practical work, exploring technology,
-              creating digital content and turning ideas into experiences that
-              people can connect with.
-            </p>
-          </div>
-
-          <div className="about-data">
-            <div>
-              <span>FULL NAME</span>
-              <strong>BODASU VAYUNANDAN RAJ</strong>
-            </div>
-
-            <div>
-              <span>BRANCH</span>
-              <strong>ELECTRONICS & COMMUNICATION</strong>
-            </div>
-
-            <div>
-              <span>INSTITUTION</span>
-              <strong>NNRESGI</strong>
-            </div>
-
-            <div>
-              <span>ROLE</span>
-              <strong>ECE • CONTENT CREATOR</strong>
-            </div>
-
-            <div>
-              <span>LOCATION</span>
-              <strong>HYDERABAD, INDIA</strong>
-            </div>
-
-            <div>
-              <span>GRADUATION</span>
-              <strong>2028</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= WORK ================= */}
-
-      <section className="section work-section" id="work">
-        <div className="section-number">02</div>
-
-        <div className="section-heading">
-          <p>ENGINEERING / 002</p>
-
-          <h2>
-            ONE PROJECT.
-            <br />
-            <span>BUILT FOR REAL.</span>
-          </h2>
-        </div>
-
-        <div className="project-card">
-          <div className="project-header">
-            <div>
-              <span className="project-label">
-                REAL-TIME PROJECT / 01
-              </span>
-
-              <h3>SYNCHRONOUS FIFO MEMORY</h3>
-
-              <p>USING VERILOG</p>
-            </div>
-
-            <span className="project-year">RTP</span>
-          </div>
-
-          <div className="fifo-visual">
-            <div className="data-label">DATA_IN</div>
-
-            <div className="signal-arrow">→</div>
-
-            <div className="fifo-box">
-              <div className="fifo-title">FIFO MEMORY</div>
-
-              <div className="memory-cells">
-                <span>00</span>
-                <span>01</span>
-                <span>02</span>
-                <span>03</span>
-                <span>04</span>
-                <span>05</span>
-              </div>
-
-              <div className="fifo-lines">
-                <i />
-                <i />
-                <i />
-              </div>
-            </div>
-
-            <div className="signal-arrow">→</div>
-
-            <div className="data-label">DATA_OUT</div>
-          </div>
-
-          <div className="clock-row">
-            <span>CLOCK</span>
-
-            <div className="clock-wave">
-              <i />
-              <i />
-              <i />
-              <i />
-              <i />
-              <i />
-            </div>
-          </div>
-
-          <div className="project-footer">
-            <p>
-              A synchronous FIFO memory design implemented using Verilog HDL,
-              focusing on controlled read and write operations, memory
-              organization and simulation-based verification.
-            </p>
-
-            <div className="tags">
-              <span>VERILOG</span>
-              <span>FIFO</span>
-              <span>RTL</span>
-              <span>SIMULATION</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= SKILLS ================= */}
-
-      <section className="section skills-section" id="skills">
-        <div className="section-number">03</div>
-
-        <div className="section-heading">
-          <p>SKILLS / 003</p>
-
-          <h2>
-            THE
-            <br />
-            <span>TOOLKIT.</span>
-          </h2>
-        </div>
-
-        <div className="skills-grid">
-          <div className="skill-card">
+        <div className="section-wrap">
+          <div className="section-label">
             <span>01</span>
-
-            <div>
-              <h3>PROGRAMMING</h3>
-              <p>C / PYTHON</p>
-            </div>
-
-            <div className="skill-line" />
+            A LITTLE ABOUT ME
           </div>
 
-          <div className="skill-card">
-            <span>02</span>
+          <div className="about-layout">
+            <div className="about-title">
+              <p className="eyebrow">THE PERSON BEHIND THE SCREEN</p>
 
-            <div>
-              <h3>WEB DEVELOPMENT</h3>
-              <p>WEB / DIGITAL</p>
+              <h2>
+                A TECH
+                <br />
+                <i>mind</i> with
+                <br />
+                a creative
+                <br />
+                <strong>side.</strong>
+              </h2>
             </div>
 
-            <div className="skill-line" />
-          </div>
+            <div className="about-text">
+              <p className="large-copy">
+                I&apos;m <strong>Bodasu Vayunandan Raj</strong>, known as
+                Vayu — an Electronics & Communication Engineering student
+                based in Hyderabad.
+              </p>
 
-          <div className="skill-card">
-            <span>03</span>
+              <p>
+                I like learning by building, experimenting with technology,
+                working on practical projects and creating visual content
+                that feels personal rather than ordinary.
+              </p>
 
-            <div>
-              <h3>IoT</h3>
-              <p>SENSORS / CONNECTED SYSTEMS</p>
-            </div>
+              <p>
+                Engineering gives me the logic. Content creation gives me the
+                freedom to explore ideas, visuals and stories.
+              </p>
 
-            <div className="skill-line" />
-          </div>
+              <div className="about-facts">
+                <div>
+                  <span>NAME</span>
+                  <strong>BODASU VAYUNANDAN RAJ</strong>
+                </div>
 
-          <div className="skill-card creator-skill">
-            <span>04</span>
+                <div>
+                  <span>FIELD</span>
+                  <strong>ELECTRONICS & COMMUNICATION</strong>
+                </div>
 
-            <div>
-              <h3>CONTENT CREATOR</h3>
-              <p>VIDEO / REELS / CANVA / STORYTELLING</p>
-            </div>
+                <div>
+                  <span>COLLEGE</span>
+                  <strong>NNRESGI</strong>
+                </div>
 
-            <div className="skill-line" />
-          </div>
-        </div>
-      </section>
-
-      {/* ================= JOURNEY ================= */}
-
-      <section className="section journey-section" id="journey">
-        <div className="section-number">04</div>
-
-        <div className="section-heading">
-          <p>JOURNEY / 004</p>
-
-          <h2>
-            WHERE I
-            <br />
-            <span>STARTED.</span>
-          </h2>
-        </div>
-
-        <div className="timeline">
-          <div className="timeline-item">
-            <div className="timeline-year">2022</div>
-
-            <div className="timeline-dot" />
-
-            <div className="timeline-content">
-              <span>SECONDARY EDUCATION</span>
-
-              <h3>VIJAYA RATNA</h3>
-
-              <p>97%</p>
-
-              <small>HYDERABAD</small>
-            </div>
-          </div>
-
-          <div className="timeline-item">
-            <div className="timeline-year">2022—24</div>
-
-            <div className="timeline-dot" />
-
-            <div className="timeline-content">
-              <span>INTERMEDIATE / MPC</span>
-
-              <h3>NARAYANA JUNIOR COLLEGE</h3>
-
-              <p>703 / 1000</p>
-
-              <small>TARNAKA</small>
-            </div>
-          </div>
-
-          <div className="timeline-item active">
-            <div className="timeline-year">2024—28</div>
-
-            <div className="timeline-dot" />
-
-            <div className="timeline-content">
-              <span>B.TECH / ECE</span>
-
-              <h3>
-                NALLA NARASIMHA REDDY EDUCATION SOCIETY&apos;S GROUP OF
-                INSTITUTIONS
-              </h3>
-
-              <p>ELECTRONICS & COMMUNICATION ENGINEERING</p>
-
-              <small>HYDERABAD</small>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= CERTIFICATIONS ================= */}
-
-      <section
-        className="section certifications-section"
-        id="certifications"
-      >
-        <div className="section-number">05</div>
-
-        <div className="section-heading">
-          <p>CREDENTIALS / 005</p>
-
-          <h2>
-            LEARNING
-            <br />
-            <span>IN MOTION.</span>
-          </h2>
-        </div>
-
-        <div className="cert-intro">
-          <p>
-            Virtual internships and technical learning experiences across
-            cloud, embedded systems, AI-ML, full-stack development and
-            electric vehicle technology.
-          </p>
-
-          <span>06 CREDENTIALS / 2025—26</span>
-        </div>
-
-        <div className="cert-grid">
-          {certificates.map((certificate) => (
-            <article className="cert-card" key={certificate.number}>
-              <div className="cert-top">
-                <span>{certificate.number}</span>
-                <span>VIRTUAL INTERNSHIP</span>
-              </div>
-
-              <div className="cert-main">
-                <span className="cert-small">CREDENTIAL</span>
-
-                <h3>{certificate.title}</h3>
-
-                <h4>{certificate.subtitle}</h4>
-
-                <div className="cert-info">
-                  <div>
-                    <span>ORGANIZATION</span>
-                    <strong>{certificate.organization}</strong>
-                  </div>
-
-                  <div>
-                    <span>PERIOD</span>
-                    <strong>{certificate.period}</strong>
-                  </div>
+                <div>
+                  <span>LOCATION</span>
+                  <strong>HYDERABAD, INDIA</strong>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="cert-bottom">
+      {/* =====================================================
+          WORK
+      ===================================================== */}
+
+      <section className="work-section" id="work">
+        <div className="section-wrap">
+          <div className="section-label">
+            <span>02</span>
+            SOMETHING I BUILT
+          </div>
+
+          <div className="work-heading">
+            <div>
+              <p className="eyebrow">REAL-TIME PROJECT</p>
+
+              <h2>
+                FROM
+                <br />
+                <i>logic</i>
+                <br />
+                TO REALITY.
+              </h2>
+            </div>
+
+            <p>
+              A practical engineering project focused on memory organization,
+              controlled data flow and synchronous operation.
+            </p>
+          </div>
+
+          <article className="project-showcase">
+            <div className="project-topline">
+              <span>PROJECT / 001</span>
+              <span>RTP</span>
+              <span>VERILOG HDL</span>
+            </div>
+
+            <div className="project-content">
+              <div className="project-name">
+                <span>02 / ENGINEERING</span>
+
+                <h3>
+                  SYNCHRONOUS
+                  <br />
+                  <i>FIFO</i>
+                  <br />
+                  MEMORY
+                </h3>
+
+                <p>
+                  A synchronous FIFO memory designed and simulated using
+                  Verilog HDL.
+                </p>
+              </div>
+
+              <div className="fifo-art">
+                <div className="fifo-input">
+                  DATA
+                  <span>IN</span>
+                </div>
+
+                <div className="fifo-arrow">→</div>
+
+                <div className="fifo-memory">
+                  <div className="fifo-memory-title">
+                    MEMORY
+                    <small>FIFO BUFFER</small>
+                  </div>
+
+                  <div className="fifo-slots">
+                    <span>00</span>
+                    <span>01</span>
+                    <span>02</span>
+                    <span>03</span>
+                    <span>04</span>
+                    <span>05</span>
+                  </div>
+
+                  <div className="fifo-wave">
+                    <i />
+                    <i />
+                    <i />
+                    <i />
+                  </div>
+                </div>
+
+                <div className="fifo-arrow">→</div>
+
+                <div className="fifo-input">
+                  DATA
+                  <span>OUT</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="project-meta">
+              <div>
+                <span>TOOLS</span>
+                <strong>VERILOG / SIMULATION</strong>
+              </div>
+
+              <div>
+                <span>TYPE</span>
+                <strong>REAL-TIME PROJECT</strong>
+              </div>
+
+              <div>
+                <span>FOCUS</span>
+                <strong>READ / WRITE CONTROL</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* =====================================================
+          SKILLS
+      ===================================================== */}
+
+      <section className="skills-section" id="skills">
+        <div className="section-wrap">
+          <div className="section-label">
+            <span>03</span>
+            THINGS I KNOW
+          </div>
+
+          <div className="skills-intro">
+            <h2>
+              THE THINGS
+              <br />
+              <i>I&apos;M</i> LEARNING.
+            </h2>
+
+            <p>
+              My skill set sits somewhere between engineering, technology and
+              visual creativity.
+            </p>
+          </div>
+
+          <div className="skills-orbit">
+            <div className="orbit-center">
+              <span>VAYU</span>
+              <small>CURIOUS / ALWAYS</small>
+            </div>
+
+            <div className="skill-pill pill-one">
+              <small>01</small>
+              <strong>C / PYTHON</strong>
+            </div>
+
+            <div className="skill-pill pill-two">
+              <small>02</small>
+              <strong>WEB DEVELOPMENT</strong>
+            </div>
+
+            <div className="skill-pill pill-three">
+              <small>03</small>
+              <strong>IoT</strong>
+            </div>
+
+            <div className="skill-pill pill-four">
+              <small>04</small>
+              <strong>CONTENT CREATION</strong>
+            </div>
+
+            <div className="skill-pill pill-five">
+              <small>05</small>
+              <strong>VIDEO EDITING</strong>
+            </div>
+
+            <div className="skill-pill pill-six">
+              <small>06</small>
+              <strong>CANVA / VISUALS</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          JOURNEY
+      ===================================================== */}
+
+      <section className="journey-section" id="journey">
+        <div className="journey-tint" />
+
+        <div className="section-wrap">
+          <div className="section-label">
+            <span>04</span>
+            THE JOURNEY SO FAR
+          </div>
+
+          <div className="journey-header">
+            <h2>
+              STILL
+              <br />
+              <i>becoming.</i>
+            </h2>
+
+            <p>
+              Every stage added something different — discipline, curiosity,
+              direction and the confidence to build my own path.
+            </p>
+          </div>
+
+          <div className="journey-list">
+            <article className="journey-card">
+              <div className="journey-year">2022</div>
+
+              <div className="journey-marker">01</div>
+
+              <div className="journey-info">
+                <span>SECONDARY EDUCATION</span>
+
+                <h3>VIJAYA RATNA</h3>
+
+                <p>97% / 9.7</p>
+
+                <small>HYDERABAD</small>
+              </div>
+            </article>
+
+            <article className="journey-card">
+              <div className="journey-year">2022 — 24</div>
+
+              <div className="journey-marker">02</div>
+
+              <div className="journey-info">
+                <span>INTERMEDIATE</span>
+
+                <h3>NARAYANA JUNIOR COLLEGE</h3>
+
+                <p>703 / 1000</p>
+
+                <small>TARNAKA</small>
+              </div>
+            </article>
+
+            <article className="journey-card journey-current">
+              <div className="journey-year">2024 — 28</div>
+
+              <div className="journey-marker">03</div>
+
+              <div className="journey-info">
+                <span>B.TECH / ECE</span>
+
+                <h3>
+                  NALLA NARASIMHA REDDY EDUCATION SOCIETY&apos;S GROUP OF
+                  INSTITUTIONS
+                </h3>
+
+                <p>ELECTRONICS & COMMUNICATION ENGINEERING</p>
+
+                <small>HYDERABAD</small>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          CERTIFICATIONS
+      ===================================================== */}
+
+      <section className="cert-section" id="certifications">
+        <div className="section-wrap">
+          <div className="section-label">
+            <span>05</span>
+            CREDENTIALS
+          </div>
+
+          <div className="cert-header">
+            <h2>
+              PROOF
+              <br />
+              <i>OF</i>
+              <br />
+              PROGRESS.
+            </h2>
+
+            <div>
+              <p>
+                Six learning experiences across cloud, embedded systems,
+                artificial intelligence, full-stack development and EV
+                technology.
+              </p>
+
+              <span>2025 — 2026 / 06 CREDENTIALS</span>
+            </div>
+          </div>
+
+          <div className="cert-grid">
+            {certificates.map((certificate) => (
+              <article className="cert-item" key={certificate.number}>
+                <div className="cert-number">{certificate.number}</div>
+
+                <div className="cert-content">
+                  <span className="cert-type">
+                    VIRTUAL INTERNSHIP
+                  </span>
+
+                  <h3>{certificate.title}</h3>
+
+                  <p>{certificate.subtitle}</p>
+
+                  <div className="cert-details">
+                    <span>{certificate.organization}</span>
+                    <span>{certificate.period}</span>
+                  </div>
+                </div>
+
                 <a
                   href={certificate.file}
                   target="_blank"
                   rel="noreferrer"
-                  className="certificate-button"
+                  className="cert-view"
                 >
-                  VIEW CERTIFICATE
+                  VIEW
                   <span>↗</span>
                 </a>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ================= CREATOR ================= */}
+      {/* =====================================================
+          CREATOR / VAYUVERSE
+      ===================================================== */}
 
-      <section className="section creator-section" id="creator">
-        <div className="section-number">06</div>
+      <section className="creator-section" id="creator">
+        <div className="creator-gradient" />
+        <div className="creator-grid" />
 
-        <div className="creator-top">
-          <div>
-            <p className="section-mini">
-              CONTENT CREATION / 006
-            </p>
+        <div className="section-wrap">
+          <div className="section-label creator-label">
+            <span>06</span>
+            THE CREATIVE SIDE
+          </div>
+
+          <div className="creator-heading">
+            <p>WELCOME TO</p>
 
             <h2>
-              CREATE.
+              VAYUU
               <br />
-              <span>CONNECT.</span>
-              <br />
-              <strong>EXPRESS.</strong>
+              <i>VERSE.</i>
             </h2>
+
+            <div className="creator-stamp">
+              <span>CONTENT</span>
+              <strong>+</strong>
+              <span>VISUALS</span>
+              <strong>+</strong>
+              <span>STORIES</span>
+            </div>
           </div>
 
-          <div className="creator-intro">
-            <div className="creator-badge">
-              <span className="creator-dot" />
-              CREATOR MODE
+          <div className="creator-body">
+            <div className="creator-manifesto">
+              <p className="manifesto-small">
+                NOT JUST CONTENT.
+              </p>
+
+              <h3>
+                A WAY
+                <br />
+                <i>OF SEEING.</i>
+              </h3>
             </div>
 
-            <p>
-              Engineering is one side of me. Content creation is where I
-              explore ideas, moments, visuals and stories in my own way.
-            </p>
+            <div className="creator-copy">
+              <p>
+                Content creation is the space where I experiment without
+                limits — reels, videography, editing, visual ideas and the
+                everyday moments that usually go unnoticed.
+              </p>
 
-            <p>
-              Through reels, videography, editing and visual content, I
-              experiment with different ways of turning everyday moments into
-              something people can experience.
-            </p>
+              <p>
+                I&apos;m building <strong>@VAYUVERSE</strong> as a place for
+                those ideas to live.
+              </p>
 
-            <a
-              href={socialLinks.instagram}
-              target="_blank"
-              rel="noreferrer"
-              className="creator-button"
-            >
-              EXPLORE @VAYUVERSE
-              <span>↗</span>
-            </a>
+              <a
+                href={socialLinks.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="instagram-button"
+              >
+                EXPLORE @VAYUVERSE
+                <span>↗</span>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div className="creator-cards">
-          <div className="creator-card creator-card-large">
-            <span>01</span>
-
+          <div className="creator-services">
             <div>
-              <strong>CONTENT</strong>
-              <p>Reels • Digital Stories • Ideas</p>
+              <span>01</span>
+              <strong>REELS</strong>
+              <small>SHORT FORM / STORIES</small>
             </div>
 
-            <span className="creator-arrow">↗</span>
-          </div>
-
-          <div className="creator-card">
-            <span>02</span>
-
             <div>
+              <span>02</span>
               <strong>VIDEOGRAPHY</strong>
-              <p>Visual Moments</p>
+              <small>VISUAL MOMENTS</small>
             </div>
-
-            <span className="creator-arrow">↗</span>
-          </div>
-
-          <div className="creator-card">
-            <span>03</span>
 
             <div>
+              <span>03</span>
               <strong>EDITING</strong>
-              <p>Video • Visuals • Storytelling</p>
+              <small>VIDEO / VISUALS</small>
             </div>
 
-            <span className="creator-arrow">↗</span>
+            <div>
+              <span>04</span>
+              <strong>STORYTELLING</strong>
+              <small>IDEAS / PERSPECTIVE</small>
+            </div>
           </div>
-        </div>
-
-        <div className="creator-handle">
-          <span>CREATOR IDENTITY</span>
-
-          <strong>@VAYUVERSE</strong>
-
-          <a
-            href={socialLinks.instagram}
-            target="_blank"
-            rel="noreferrer"
-          >
-            INSTAGRAM ↗
-          </a>
         </div>
       </section>
 
-      {/* ================= CONTACT ================= */}
+      {/* =====================================================
+          CONTACT
+      ===================================================== */}
 
       <section className="contact-section" id="contact">
-        <div className="contact-inner">
-          <p className="section-mini">CONTACT / 007</p>
+        <div className="contact-circle" />
 
-          <h2>
-            LET&apos;S
-            <br />
-            <span>CONNECT.</span>
-          </h2>
+        <div className="section-wrap">
+          <div className="section-label">
+            <span>07</span>
+            SAY HELLO
+          </div>
 
-          <p className="contact-subtitle">
-            Engineering, ideas, content or collaboration —
-            <br />
-            feel free to reach out.
-          </p>
+          <div className="contact-main">
+            <div>
+              <p className="eyebrow">HAVE AN IDEA?</p>
 
-          <a
-            href="mailto:Rajayanandan@gmail.com"
-            className="email-link"
-          >
-            Rajayanandan@gmail.com ↗
-          </a>
+              <h2>
+                LET&apos;S MAKE
+                <br />
+                <i>SOMETHING.</i>
+              </h2>
+            </div>
 
-          <div className="socials">
+            <div className="contact-right">
+              <p>
+                Whether it&apos;s technology, content, collaboration or simply
+                an interesting idea — I&apos;m always open to connecting.
+              </p>
+
+              <a
+                href="mailto:Rajayanandan@gmail.com"
+                className="contact-email"
+              >
+                Rajayanandan@gmail.com
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="social-row">
             <a
               href={socialLinks.linkedin}
               target="_blank"
               rel="noreferrer"
             >
-              LINKEDIN ↗
+              LINKEDIN <span>↗</span>
             </a>
 
             <a
@@ -739,7 +801,7 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
             >
-              GITHUB ↗
+              GITHUB <span>↗</span>
             </a>
 
             <a
@@ -747,7 +809,7 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
             >
-              INSTAGRAM ↗
+              INSTAGRAM <span>↗</span>
             </a>
 
             <a
@@ -755,23 +817,30 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
             >
-              YOUTUBE ↗
+              YOUTUBE <span>↗</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* ================= FOOTER ================= */}
+      {/* =====================================================
+          FOOTER
+      ===================================================== */}
 
       <footer>
-        <div className="footer-brand">
+        <div className="footer-left">
           <strong>VAYU</strong>
-          <span>ECE • CREATOR</span>
+          <span>ECE × CREATOR</span>
         </div>
 
-        <p>DESIGNED & BUILT BY VAYU © 2026</p>
+        <div className="footer-center">
+          MADE WITH CURIOSITY.
+        </div>
 
-        <span>HYDERABAD / INDIA</span>
+        <div className="footer-right">
+          HYDERABAD / INDIA
+          <span>© 2026</span>
+        </div>
       </footer>
     </main>
   );
