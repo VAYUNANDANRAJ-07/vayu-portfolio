@@ -380,7 +380,7 @@ export default function Home() {
 
       <section className="section-shell section-block story-section" id="vayuverse">
         <div className="section-heading reveal">
-          <span>06 / VAYUVERSE</span>
+          <span>06 / STORYTELLING</span>
           <span>STORIES BEHIND THE BUILD</span>
         </div>
 
@@ -389,7 +389,7 @@ export default function Home() {
             <p className="eyebrow">A SPACE TO SHARE THE PROCESS</p>
             <h2>NOT JUST<br /><em>THE FINISHED THING.</em></h2>
             <p>
-              Vayuverse is where I share the stories around what I’m learning
+              This is where I share stories about what I’m learning
               and creating: experiments that worked, ideas still taking shape,
               everyday moments, and the lessons in between.
             </p>
@@ -408,7 +408,7 @@ export default function Home() {
             href="https://www.instagram.com/vayuversee/"
             target="_blank"
             rel="noreferrer"
-            aria-label="Open Vayuversee on Instagram"
+            aria-label="Open @VAYUVERSEE on Instagram"
           >
             <span className="story-card-index">FIELD NOTES / 001</span>
             <span className="story-card-mark">V</span>
@@ -460,4 +460,5 @@ export default function Home() {
     </main>
   );
 }
+
 

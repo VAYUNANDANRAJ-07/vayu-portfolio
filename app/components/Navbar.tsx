@@ -11,7 +11,7 @@ export default function NavBar() {
     { label: "SKILLS", href: "#skills" },
     { label: "JOURNEY", href: "#journey" },
     { label: "CREDENTIALS", href: "#credentials" },
-    { label: "VAYUVERSE", href: "#vayuverse" },
+    { label: "STORIES", href: "#vayuverse" },
     { label: "CONTACT", href: "#contact" },
   ];
 
@@ -60,3 +60,4 @@ export default function NavBar() {
     </nav>
   );
 }
+
